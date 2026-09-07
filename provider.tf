@@ -14,10 +14,12 @@ terraform {
 # Configure the BTP Provider
 provider "btp" {
   globalaccount = var.global_account
-  idp           = var.btp_idp
+  idp           = var.btp_user_idp
 }
 
+/*
 # Configure the Cloud Foundry Provider
 provider "cloudfoundry" {
   api_url = var.cf_api_url
 }
+*/

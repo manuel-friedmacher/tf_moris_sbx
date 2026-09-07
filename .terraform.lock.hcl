@@ -5,6 +5,7 @@ provider "registry.terraform.io/cloudfoundry/cloudfoundry" {
   version     = "1.15.0"
   constraints = "1.15.0"
   hashes = [
+    "h1:3sUr5JikaRb75pPXu+O8NixOSExbC0kcEYcNmnG8Kj8=",
     "h1:d6cN005b4j3gB89B1eeDyLmsPbUFOZcvNjg1flZqHmw=",
     "zh:112184b881ddfeb7df10164eba8c240ef5f62449a5635c58942885c3b8b1473c",
     "zh:12a017f8e7e05ff5fead2b4ede3b25f55721bab4f183bb2cec67a209faeb97a5",
@@ -25,8 +26,9 @@ provider "registry.terraform.io/cloudfoundry/cloudfoundry" {
 
 provider "registry.terraform.io/sap/btp" {
   version     = "1.22.0"
-  constraints = "1.22.0, ~> 1.22.0"
+  constraints = ">= 1.22.0, 1.22.0"
   hashes = [
+    "h1:LBtuhyoAxqyGSEsSJUCinC3jtX/Ghdtja8pAYv4dXec=",
     "h1:j2IVef84UoWHVY0Uw2aGbR1WAQJHF5XJvQtu77a33L0=",
     "zh:068b1aac305e8c21dd3e78dd6836c61c3ccb4150c56576648aa368b73434cd40",
     "zh:06be4bdc18d3f0463bccbe77040f9ae029a207afa88f070ad0e4e3e57c9e806e",
