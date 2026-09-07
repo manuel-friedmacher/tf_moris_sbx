@@ -6,8 +6,12 @@ locals {
   ]
 }
 
-module "sa_build" {
-  source            = "${local.git_url}sa_build?ref=${local.module_version}"
+/*
+Create a subaccount with the name of the project and the given region. The subaccount will be created in the parent account with the given parent_id.
+*/
+module "build_sa" {
+  /*source            = "${local.git_url}sa_build?ref=${local.module_version}"*/
+  source            = "git::https://github.com/manuel-friedmacher/tf_module_build_sa"
   project_name      = var.project_name
   subaccount_region = var.subaccount_region
   stage             = var.stage
@@ -28,7 +32,10 @@ module "sa_build" {
   btp_platform_idp = var.btp_platform_idp
 } */
 
-module "cf_enable" {
+/*
+Enable Cloud Foundry in the subaccount and create a user for each user name in the list of user names. The users will be created with the given idp_origin.
+*/
+/*module "cf_enable" {
   source               = "${local.git_url}cf_enable?ref=${local.module_version}"
   subaccount_id        = module.sa_build.subaccount_id
   subaccount_subdomain = module.sa_build.subaccount_subdomain
@@ -36,7 +43,7 @@ module "cf_enable" {
   for_each             = toset(local.user_names)
   user_name            = each.value
   idp_origin           = var.btp_platform_idp
-}
+}*/
 
 /* module "cf_space_add" {
   source        = "${local.git_url}cf_space_add?ref=${local.module_version}"
@@ -63,9 +70,12 @@ module "cf_enable" {
   abap_is_development_allowed = var.abap_is_development_allowed
 } */
 
-module "wz_add" {
+/*
+Subcribe to the wz_add service in the subaccount and create a user for each user name in the list of user names. The users will be created with the given idp_origin.
+*/
+/*module "wz_add" {
   source           = "${local.git_url}wz_add?ref=${local.module_version}"
   subaccount_id    = module.sa_build.subaccount_id
   btp_platform_idp = var.btp_platform_idp
   cf_org_id        = module.cf_enable.cf_org_id
-}
+}*/
