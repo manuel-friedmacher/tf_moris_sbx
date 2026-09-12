@@ -17,9 +17,7 @@ provider "btp" {
   idp           = var.btp_user_idp
 }
 
-/*
 # Configure the Cloud Foundry Provider
 provider "cloudfoundry" {
   api_url = var.cf_api_url
 }
-*/
