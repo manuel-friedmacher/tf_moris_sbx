@@ -3,11 +3,14 @@ Create the MoRIS Sandbox environment.
 
 # Prepare
 ## Devcontainer
-Create a file **devcontainer.env** in the **.devcontainer** folder, which includes the necessary environment variables:
+Update the file **devcontainer.env** in the **.devcontainer** folder, which includes the necessary environment variables:
 - BTP_USERNAME
 - BTP_PASSWORD
 - AWS_ACCESS_KEY_ID
 - AWS_SECRET_ACCESS_KEY
+- CF_USER
+- CF_PASSWORD
+- CF_ORIGIN
 
 ## Variables
 Create a file **terraform.tfvars** with the following varabels and maintain the correct values in it.
@@ -20,6 +23,12 @@ Create a file **terraform.tfvars** with the following varabels and maintain the 
 | parent_id | The UUID of the directory, the subaccount shall be created in. |
 | btp_platform_idp | FQDN of the platform Identity Provider (IdP). |
 | btp_user_idp | FQDN of the Identity Provider (IdP) to be trusted. |
+| cf_region | Cloud Foundry datacenter region |
+| cf_administrator | Administrator user to be added to the Cloud Foundry Org and Spaces |
+| cf_api_url | URL of the Cloud Foundry API
+| abap_sid | SID of the SAP BTP ABAP Environment |
+| abap_admin_email | Administrator user to be added to the SAP BTP ABAP Environment |
+| abap_is_development_allowed | Is the SAP BTP ABAP Environment enabled for development |
 
 # Run
 Run the following terraform commands in an terminal within the devcontainer:
@@ -30,3 +39,14 @@ terraform validate
 terraform plan
 terraform apply
 ````
+
+# Update
+When changing the version of a provider, run the following command:
+```shell
+terraform init -upgrade
+```
+
+When something was changed manually, run the following command:
+```shell
+terraform apply -refresh-only
+```
